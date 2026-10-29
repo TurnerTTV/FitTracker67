@@ -1,0 +1,20 @@
+FITTRACKER - GÉNÉRER L'APK (sans Android Studio)
+
+Tu as besoin d'un compte GitHub gratuit (github.com). La compilation se fait chez GitHub, tu n'installes rien.
+
+1. Sur GitHub, crée un nouveau dépôt (New repository), par exemple "fittracker" (privé ou public).
+2. Dans le dépôt, clique sur "uploading an existing file" et glisse-y le contenu de ce dossier :
+   package.json, capacitor.config.json, et les dossiers "www" et "assets". Valide avec "Commit changes".
+3. Ajoute le fichier de compilation : "Add file" > "Create new file", nomme-le exactement
+       .github/workflows/build-apk.yml
+   (en tapant les "/", GitHub crée les dossiers), puis colle le contenu du fichier
+   workflow-build-apk.yml fourni ici, et valide avec "Commit changes".
+   (Si le dossier ".github" est visible chez toi, tu peux aussi le glisser directement à l'étape 2.)
+4. Ouvre l'onglet "Actions". La compilation démarre toute seule (5 à 10 minutes).
+   Sinon : "Build APK" > "Run workflow".
+5. Quand c'est vert, clique sur l'exécution, puis télécharge "FitTracker-apk" en bas de page (Artifacts).
+   Dézippe : tu obtiens app-debug.apk.
+6. Envoie l'APK sur ton téléphone Android, ouvre-le et autorise l'installation depuis cette source.
+
+Pour mettre à jour l'appli : remplace www/index.html dans le dépôt, la compilation repart seule.
+Cet APK est signé en mode "debug" : parfait pour toi et tes testeurs, mais pas pour le Google Play Store.
